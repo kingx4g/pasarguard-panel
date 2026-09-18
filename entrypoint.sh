@@ -13,7 +13,7 @@ if [ ! -f "$CERT" ] || [ ! -f "$KEY" ]; then
 fi
 
 echo ">> در حال آپدیت جدول‌های دیتابیس (migration)..."
-alembic upgrade head
+python -m alembic upgrade head
 
 echo ">> در حال ساخت کد ورود موقت مالک (فقط ۵ دقیقه اعتبار داره؛ توی همین Deploy Logs پیداش کن)..."
 python pasarguard-cli.py generate-temp-key || true
